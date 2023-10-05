@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferrari</title>
+</head>
+
+<body>
+    <h1>Ferrari</h1>
+    <label for="nome">nome</label>
+    
+    <button id="meuBotao">clique-mim</button>
+    <input type="text" class="form-control" id="nome" placeholder=SeuNome>
+
+    <p id="minhaMensagem"></p>
+
+
+    <script>
+
+        document.getElementById("meuBotao").addEventListener("Click",
+            function () {
+                var nome = document.getElementById("nome").value;
+
+
+
+                if (nome) {
+                    document.getElementById("minhaMensagem").innerHTML = "ola, mundo" + nome + "Seja bem vindo"
+                }
+
+            })   
+
+    </script>
+</body>
+
+</html>
