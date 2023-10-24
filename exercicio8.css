@@ -1,0 +1,32 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background-color: grey;
+}
+
+.bord{
+    display: grid;
+    grid-template-columns: repeat(4, 100x);
+    gap: 15px;
+    margin: 30px auto;
+    width: 320px;
+}
+
+.cell{
+    width: 100px;
+    height: 100px;
+    font-size: 24px;
+    text-align: center;
+    background-color: blue;
+    cursor: crosshair;
+    border: 2px solid black;
+}
+
+.cell:hover{
+background-color: white;
+}
+
+.menssage{
+    font-size: 40px;
+    margin: 30px;
+}
