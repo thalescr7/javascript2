@@ -1,0 +1,38 @@
+/* Estiliza o corpo da página */
+body {
+    font-family: Arial, sans-serif; /* Define a fonte principal para Arial, com uma fonte de fallback em sans-serif caso Arial não esteja disponível. */
+    text-align: center; /* Centraliza o texto no corpo da página. */
+    background-color: #f0f0f0; /* Define a cor de fundo como um tom de cinza claro. */
+}
+
+/* Estiliza o contêiner do tabuleiro */
+.board {
+    display: grid; /* Usa um modelo de layout de grade. */
+    grid-template-columns: repeat(3, 100px); /* Cria três colunas de 100px cada. */
+    gap: 10px; /* Define um espaço de 10px entre as células da grade. */
+    margin: 30px auto; /* Adiciona margem superior e inferior de 30px e centraliza o contêiner horizontalmente. */
+    width: 320px; /* Define uma largura máxima de 320px para o tabuleiro. */
+}
+
+/* Estiliza as células do tabuleiro */
+.cell {
+    width: 100px; /* Define a largura da célula como 100px. */
+    height: 100px; /* Define a altura da célula como 100px. */
+    font-size: 24px; /* Define o tamanho da fonte como 24px. */
+    text-align: center; /* Centraliza o texto dentro da célula. */
+    line-height: 100px; /* Centraliza verticalmente o conteúdo da célula. */
+    background-color: #eee; /* Define a cor de fundo da célula como um tom de cinza mais claro. */
+    cursor: pointer; /* Mostra o cursor como uma mão quando passa por cima da célula. */
+    border: 2px solid #333; /* Adiciona uma borda sólida de 2px à volta da célula. */
+}
+
+/* Estiliza as células quando o cursor passa por cima delas */
+.cell:hover {
+    background-color: #ccc; /* Altera a cor de fundo da célula para um tom de cinza mais escuro quando o cursor passa por cima. */
+}
+
+/* Estiliza a mensagem */
+.message {
+    font-size: 24px; /* Define o tamanho da fonte da mensagem como 24px. */
+    margin-top: 20px; /* Adiciona uma margem superior de 20px para separar a mensagem do tabuleiro. */
+}
