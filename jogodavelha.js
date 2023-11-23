@@ -1,40 +1,49 @@
-// Obtém a referência ao elemento HTML com o ID 'board' e à classe '.message'.
+
 const board = document.getElementById('board');
 const message = document.querySelector('.message');
 
-// Inicializa as variáveis do jogo.
-let jogadorAtual = 'X'; // Define o jogador atual como 'X'.
-let cells = Array(9).fill(''); // Cria um array vazio com 9 elementos para representar as células do tabuleiro.
-let gameover = false; // Inicialmente, o jogo não está encerrado.
+let jogadorAtual = 'X';
+let cells = Array(9).fill('');
+let gameover = false;
 
-// Cria as células do tabuleiro e adiciona manipuladores de eventos de clique a cada uma.
 for (let i = 0; i < 9; i++) {
     const cell = document.createElement('div');
-    cell.classList.add('cell'); // Adiciona a classe 'cell' para estilização.
-    cell.addEventListener('click', () => handleCellClick(i)); // Adiciona um evento de clique que chama a função handleCellClick com o índice da célula.
-    board.appendChild(cell); // Adiciona a célula criada ao tabuleiro.
+    cell.classList.add('cell');
+    cell.addEventListener('click', () => handleCellClick(i));
+    board.appendChild(cell);
 }
 
-// Função que lida com o clique em uma célula.
 function handleCellClick(index) {
-    if (gameover || cells[index] !== '') return; // Se o jogo já terminou ou a célula já está preenchida, sai da função.
+    if (gameover || cells[index] !== '') return;
 
-    cells[index] = jogadorAtual; // Registra a jogada do jogador atual no array de células.
-    board.children[index].textContent = jogadorAtual; // Exibe o símbolo do jogador atual na célula clicada.
+    cells[index] = jogadorAtual;
 
-    if (checkWinner()) { // Verifica se há um vencedor.
-        gameover = true; // O jogo termina.
-        message.textContent = `Jogador ${jogadorAtual} venceu!`; // Exibe a mensagem de vitória.
-    } else if (cells.every(cell => cell !== '')) { // Verifica se todas as células estão preenchidas, resultando em um empate.
-        gameover = true; // O jogo termina.
-        message.textContent = 'Empate!'; // Exibe a mensagem de empate.
+    const cell = board.children[index];
+    const img = document.createElement('img');
+    img.classList.add('symbol'); 
+    
+    if (jogadorAtual === 'X') {
+        img.src = 'lewis2.png';  // coloquei imagens no lugar do X
+        img.alt = 'X';
     } else {
-        jogadorAtual = jogadorAtual === 'X' ? 'O' : 'X'; // Alterna o jogador atual entre 'X' e 'O'.
-        message.textContent = `Vez do Jogador ${jogadorAtual}`; // Exibe a mensagem de vez do jogador.
+        img.src = 'max2(1)(1).png'; // coloquei imagens no lugar do O
+        img.alt = 'O';
+    }
+
+    cell.appendChild(img);
+
+    if (checkWinner()) {
+        gameover = true;
+        message.textContent = `Jogador ${jogadorAtual} venceu!`;
+    } else if (cells.every(cell => cell !== '')) {
+        gameover = true;
+        message.textContent = 'Empate!';
+    } else {
+        jogadorAtual = jogadorAtual === 'X' ? 'O' : 'X';
+        message.textContent = `Vez do Jogador ${jogadorAtual}`;
     }
 }
 
-// Função que verifica se há um vencedor com base nos padrões de vitória.
 function checkWinner() {
     const winPatterns = [
         [0, 1, 2],
@@ -47,13 +56,12 @@ function checkWinner() {
         [2, 4, 6]
     ];
 
-    // Verifica cada padrão de vitória.
     for (const pattern of winPatterns) {
         const [a, b, c] = pattern;
         if (cells[a] !== '' && cells[a] === cells[b] && cells[b] === cells[c]) {
-            return true; // Se algum padrão de vitória for encontrado, retorna verdadeiro.
+            return true;
         }
     }
 
-    return false; // Se nenhum padrão de vitória for encontrado, retorna falso.
+    return false;
 }
