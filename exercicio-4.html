@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios 001</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+    </style>
+    <script>
+        var n1 = Number(prompt('Digite o primeiro numero:'))
+        var n2 = Number(prompt('Digite o segundo numero:'))
+        var n3 = Number(prompt('Digite o terceiro numero:'))
+        let h1 = document.querySelector('h1')
+        function comparação(){
+            if (n3 > n2 && n1){
+                alert(`O numero ${n3} é o maior entre eles`)
+                h1.innerHTML = 'OI'
+            } else if (n2 > n1 && n3){
+                alert(`O numero ${n2} é o maior entre eles`)
+            } else if (n1 > n2 && n3){
+                alert(`O numero ${n1} é o maior entre eles`)
+                console.log(typeof(n3))
+            } else{
+                alert('Insira um valor valido')
+            }
+        }
+        comparação()
+        // var mensagem = prompt('DIgite uma mensagem')
+        // alert(mensagem)
+    </script>
+</head>
+
+<body>
+    <h1></h1>
+
+</body>
+
+</html>

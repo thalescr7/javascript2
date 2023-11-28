@@ -1,37 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .img {
+            height: 500px;
+            width: 5,5px;
+
+        }
+
+        body {
+            background-color: #661f1f;
+            font-family: Arial, sans-serif; 
+    text-align: center;
+        }
+    </style>
     <title>Ferrari</title>
 </head>
-
 <body>
     <h1>Ferrari</h1>
-    <label for="nome">nome</label>
-    
-    <button id="meuBotao">clique-mim</button>
-    <input type="text" class="form-control" id="nome" placeholder=SeuNome>
+    <label for="Nome">Digite seu Nome:</label>
+    <input type="text" id="nome" placeholder="Seu nome">
+    <button id="meuBotao">Clique-me!</button>
 
-    <p id="minhaMensagem"></p>
+          <p id="minhaMensagem"></p>
 
+          <img src="https://lncimg.lance.com.br/cdn-cgi/image/width=390,height=240,fit=crop,quality=75,format=webp/uploads/2016/05/12/5734a61a60ff0.jpeg"
+          class="img" alt="Ferrari">
 
+          <footer>
+            <b>Abraços do Michael Schumacher</b>
+          </footer>
     <script>
 
-        document.getElementById("meuBotao").addEventListener("Click",
-            function () {
+        document.getElementById("meuBotao").addEventListener("click",
+            function () {   
                 var nome = document.getElementById("nome").value;
-
-
-
                 if (nome) {
-                    document.getElementById("minhaMensagem").innerHTML = "ola, mundo" + nome + "Seja bem vindo"
-                }
-
-            })   
-
+                    document.getElementById("minhaMensagem").innerHTML ="fala mano,"+nome+" Seja bem-vindo ao meu site"
+                }else{
+                    document.getElementById("minhaMensagem").innerHTML="Você ganha uma corrida, a próxima corrida é um ponto de interrogação. Você ainda é o melhor ou não? Isso é o que é engraçado. Mas é isso que é interessante. E isso é o que é desafiador. Você tem que provar a si mesmo todas as vezes.";
+                }       
+            });
     </script>
 </body>
-
 </html>
